@@ -143,7 +143,7 @@
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
-    top: 7.5vh;
+    top: 72px;
     left: -100%;
     position: fixed;
     z-index: 1;
