@@ -81,6 +81,7 @@
     "product-list";
   background-color: var(--secondary-color);
   color: var(--text-color);
+  min-height: 100vh;
 }
 
 /* Carousel styling */
@@ -331,6 +332,8 @@ aside.products__list__scroller h3 {
 /* Product list section styling */
 .product-list {
   grid-area: product-list;
+  padding: 1rem;
+  min-height: 100px;
 }
 
 /* Footer section styling */
