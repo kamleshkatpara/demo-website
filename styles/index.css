@@ -11,7 +11,7 @@
   display: grid;
   grid-template-areas:
     "header"
-    "main-content"
+    "main__content"
     "footer";
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem;
 }
 
 .header__logo {
@@ -60,12 +60,12 @@
   display: none;
 }
 
-.main-content {
-  grid-area: main-content;
+.main__content {
+  grid-area: main__content;
   display: grid;
   grid-template-areas:
     "carousel"
-    "products-list-scroller"
+    "products__list__scroller"
     "product-list";
   background-color: var(--secondary-color);
   color: var(--text-color);
@@ -73,12 +73,252 @@
 
 .carousel {
   grid-area: carousel;
+  position: relative;
+  max-width: 100%;
+  height: 500px;
+  overflow: hidden;
 }
 
-.products-list-scroller {
-  grid-area: products-list-scroller;
+.carousel__slide {
+  display: none;
+  position: relative;
 }
 
+.carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel__container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel__button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background-color 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 10;
+}
+
+.carousel__button--prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel__button--next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel__button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel__caption {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 50vh;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel__dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #717171;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.carousel__dot--active,
+.carousel__dot:hover {
+  background-color: white;
+}
+
+.carousel__indicators {
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  z-index: 10;
+}
+
+.carousel__fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+aside.products__list__scroller {
+  grid-area: products__list__scroller;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+aside.products__list__scroller h3::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: var(--text-color);
+  z-index: 1;
+}
+
+aside.products__list__scroller h3 {
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  padding: 1rem;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-top: 2rem;
+}
+
+.products__list__scroller__container {
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.products__list__scroller__items {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem;
+}
+
+.products__list__scroller__item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.products__list__scroller__img {
+  width: 100%;
+  height: 200px;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products__list__scroller__img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.products__list__scroller__info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.products__list__scroller__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+.products__list__scroller__price {
+  font-size: 1.5rem;
+  color: #27ae60;
+  margin: 0;
+}
+
+.products__list__scroller__btn {
+  background: #0ab67f;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.products__list__scroller__btn:hover {
+  background: #2980b9;
+}
+
+.products__list__scroller__arrow {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+.products__list__scroller__arrow::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: solid #000;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  vertical-align: middle;
+  margin-top: 2px;
+}
+
+.products__list__scroller__arrow--left::before {
+  transform: rotate(-135deg);
+}
+
+.products__list__scroller__arrow--right::before {
+  transform: rotate(45deg);
+}
+
+.products__list__scroller__arrow--left {
+  left: 0;
+}
+
+.products__list__scroller__arrow--right {
+  right: 0;
+}
 .product-list {
   grid-area: product-list;
 }
@@ -127,10 +367,8 @@
 
 /* Media Queries */
 
-/* Mobile devices (portrait) */
+/* Mobile devices */
 @media (max-width: 767px) {
-  /* CSS rules for mobile devices in portrait mode */
-
   .header__nav {
     padding: 1rem 1.5rem;
   }
@@ -146,7 +384,7 @@
     top: 72px;
     left: -100%;
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     border-top: 1px dashed white;
     transition: transform 0.5s ease-in;
   }
@@ -204,29 +442,45 @@
     background: white;
   }
 
+  .carousel__container {
+    align-items: normal;
+  }
+
+  .carousel__caption {
+    bottom: 25vh;
+  }
+
+  .product-list-scroller__items {
+    grid-auto-columns: 100%;
+  }
+
   .footer__columns {
     flex-direction: column;
   }
 }
 
-/* Mobile devices (landscape) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* CSS rules for mobile devices in landscape mode */
-}
+/* Tablets and larger devices */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .carousel__caption {
+    bottom: 30vh;
+  }
+  .carousel {
+    height: 500px; /* Set a fixed height for larger screens */
+  }
 
-/* Tablets (portrait) */
-@media (min-width: 768px) and (max-width: 991px) {
-  /* CSS rules for tablets in portrait mode */
-}
-
-/* Tablets (landscape) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  /* CSS rules for tablets in landscape mode */
+  .product-list-scroller__items {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
 }
 
 /* Desktops and larger devices */
 @media (min-width: 1200px) {
-  /* CSS rules for desktops and larger devices */
+  .carousel__caption {
+    bottom: 52vh;
+  }
+  .carousel {
+    height: 500px; /* Set a fixed height for larger screens */
+  }
 }
 
 /* High-resolution screens (e.g., Retina) */
