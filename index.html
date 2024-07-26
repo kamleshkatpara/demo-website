@@ -34,33 +34,57 @@
         <section class="carousel">
           <div class="carousel__container">
             <div class="carousel__slide carousel__slide--fade">
-              <img class="carousel__image" src="./assets/carousel/first.jpeg" alt="Nature">
+              <img
+                class="carousel__image"
+                src="./assets/carousel/first.jpeg"
+                alt="Nature"
+              />
               <div class="carousel__caption">Caption Text</div>
             </div>
-        
+
             <div class="carousel__slide carousel__slide--fade">
-              <img class="carousel__image" src="./assets/carousel/second.jpeg" alt="Snow">
+              <img
+                class="carousel__image"
+                src="./assets/carousel/second.jpeg"
+                alt="Snow"
+              />
               <div class="carousel__caption">Caption Two</div>
             </div>
-        
+
             <div class="carousel__slide carousel__slide--fade">
-              <img class="carousel__image" src="./assets/carousel/third.jpeg" alt="Mountains">
+              <img
+                class="carousel__image"
+                src="./assets/carousel/third.jpeg"
+                alt="Mountains"
+              />
               <div class="carousel__caption">Caption Three</div>
             </div>
-        
-          <a class="carousel__button carousel__button--prev" onclick="plusSlides(-1)">❮</a>
-          <a class="carousel__button carousel__button--next" onclick="plusSlides(1)">❯</a>
-          
-          <div class="carousel__indicators" id="carousel-indicators"></div>
+
+            <a
+              class="carousel__button carousel__button--prev"
+              onclick="plusSlides(-1)"
+              >❮</a
+            >
+            <a
+              class="carousel__button carousel__button--next"
+              onclick="plusSlides(1)"
+              >❯</a
+            >
+
+            <div class="carousel__indicators" id="carousel-indicators"></div>
+          </div>
         </section>
         <aside class="products__list__scroller">
           <h3>Products List Scroller</h3>
-          <i id="left" class="products__list__scroller__arrow products__list__scroller__arrow--left"></i>
+          <i
+            id="left"
+            class="products__list__scroller__arrow products__list__scroller__arrow--left"
+          ></i>
           <div class="products__list__scroller__container">
             <div class="products__list__scroller__items">
               <div class="products__list__scroller__item">
                 <div class="products__list__scroller__img">
-                  <img draggable="false" class="products__list__scroller-img">
+                  <img draggable="false" class="products__list__scroller-img" />
                 </div>
                 <div class="products__list__scroller__info">
                   <h2 class="products__list__scroller__title"></h2>
@@ -70,10 +94,28 @@
               </div>
             </div>
           </div>
-          <i id="right" class="products__list__scroller__arrow products__list__scroller__arrow--right"></i>
-        
+          <i
+            id="right"
+            class="products__list__scroller__arrow products__list__scroller__arrow--right"
+          ></i>
         </aside>
-        <section class="product__list">Product List</section>
+        <section class="product__list">
+          <h3>Product List</h3>
+          <div class="product__list__container">
+            <div class="product__list__items">
+              <div class="product__list__item">
+                <div class="product__list__img">
+                  <img draggable="false" class="product__list-img" />
+                </div>
+                <div class="product__list__info">
+                  <h2 class="product__list__title"></h2>
+                  <p class="product__list__price"></p>
+                  <button class="product__list__btn">Buy Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="footer">
         <div class="footer__columns">
