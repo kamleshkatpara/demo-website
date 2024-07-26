@@ -74,10 +74,7 @@
 .main__content {
   grid-area: main__content;
   display: grid;
-  grid-template-areas:
-    "carousel"
-    "products__list__scroller"
-    "product-list";
+  grid-template-areas: "carousel";
   background-color: var(--secondary-color);
   color: var(--text-color);
 }
@@ -105,7 +102,6 @@
 
 .carousel__container {
   position: relative;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +191,7 @@
 }
 
 /* Products list scroller section styling */
-aside.products__list__scroller {
+/* aside.products__list__scroller {
   grid-area: products__list__scroller;
   width: 100%;
   position: relative;
@@ -279,10 +275,10 @@ aside.products__list__scroller h3 {
 
 .products__list__scroller__btn:hover {
   background: #2980b9;
-}
+} */
 
 /* Products list scroller navigation arrows styling */
-.products__list__scroller__arrow {
+/* .products__list__scroller__arrow {
   top: 50%;
   height: 50px;
   width: 50px;
@@ -324,12 +320,12 @@ aside.products__list__scroller h3 {
 
 .products__list__scroller__arrow--right {
   right: 0;
-}
+} */
 
 /* Product list section styling */
-.product-list {
+/* .product-list {
   grid-area: product-list;
-}
+} */
 
 /* Footer section styling */
 .footer {
@@ -456,12 +452,12 @@ aside.products__list__scroller h3 {
   }
 
   .carousel__caption {
-    bottom: 25vh;
+    bottom: 40%;
   }
 
-  .product-list-scroller__items {
+  /* .product-list-scroller__items {
     grid-auto-columns: 100%;
-  }
+  } */
 
   .footer__columns {
     flex-direction: column;
@@ -477,9 +473,9 @@ aside.products__list__scroller h3 {
     height: auto; /* Set a fixed height for larger screens */
   }
 
-  .product-list-scroller__items {
+  /* .product-list-scroller__items {
     grid-auto-columns: calc((100% / 2) - 9px);
-  }
+  } */
 }
 
 /* Desktops and larger devices */
@@ -492,8 +488,19 @@ aside.products__list__scroller h3 {
     height: auto; /* Set a fixed height for larger screens */
   }
 
-  .product-list-scroller__items {
+  /* .product-list-scroller__items {
     grid-auto-columns: calc((100% / 2) - 9px);
+  } */
+}
+
+/* Adjust carousel height for different screen sizes */
+@media (min-width: 2560px) {
+  .carousel {
+    height: 50%; /* Increase height for larger screens */
+  }
+
+  .carousel__indicators {
+    bottom: 15vh;
   }
 }
 
