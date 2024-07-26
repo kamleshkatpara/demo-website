@@ -387,7 +387,7 @@ aside.products__list__scroller h3 {
 
 @media (min-width: 2560px) {
   .carousel {
-    height: 1440px;
+    height: 100%;
   }
 }
 
@@ -404,7 +404,7 @@ aside.products__list__scroller h3 {
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
-    top: 3rem;
+    top: 4.5rem;
     right: -100%;
     position: fixed;
     z-index: 999;
