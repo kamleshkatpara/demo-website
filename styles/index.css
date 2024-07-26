@@ -182,7 +182,6 @@ aside.products__list__scroller {
   grid-area: products__list__scroller;
   width: 100%;
   position: relative;
-  cursor:grabbing;
   overflow: hidden;
 }
 
@@ -209,6 +208,7 @@ aside.products__list__scroller h3 {
 .products__list__scroller__container {
   overflow-x: hidden;
   white-space: nowrap;
+  cursor:grabbing;
 }
 
 .products__list__scroller__items {
