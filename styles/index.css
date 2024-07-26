@@ -47,6 +47,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 /* Navigation links styling */
@@ -84,7 +85,7 @@
   grid-area: carousel;
   position: relative;
   max-width: 100%;
-  height: 500px;
+  height: 50vh;
   overflow: hidden;
 }
 
@@ -382,12 +383,11 @@ aside.products__list__scroller h3 {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100vw;
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
     top: 72px;
-    left: -100%;
+    right: -100%;
     position: fixed;
     z-index: 999;
     border-top: 1px dashed white;
@@ -395,7 +395,8 @@ aside.products__list__scroller h3 {
   }
 
   .header__menu-btn:checked ~ .header__nav-menu {
-    transform: translateX(100%);
+    transform: translateX(-100%);
+    width: 100vw;
   }
 
   .header__menu-icon {
@@ -470,7 +471,7 @@ aside.products__list__scroller h3 {
     bottom: 45%;
   }
   .carousel {
-    height: auto; /* Set a fixed height for larger screens */
+    height: 767px; /* Set a fixed height for larger screens */
   }
 
   /* .product-list-scroller__items {
@@ -480,12 +481,18 @@ aside.products__list__scroller h3 {
 
 /* Desktops and larger devices */
 @media (min-width: 1200px) {
-  .carousel__caption {
-    bottom: 48%;
+  .carousel {
+    height: 768px; /* Set a fixed height for larger screens */
   }
 
-  .carousel {
-    height: auto; /* Set a fixed height for larger screens */
+  .carousel__caption {
+    bottom: 60%;
+  }
+  .carousel__button {
+    top: 35%;
+  }
+  .carousel__indicators {
+    bottom: 35%;
   }
 
   /* .product-list-scroller__items {
@@ -496,11 +503,17 @@ aside.products__list__scroller h3 {
 /* Adjust carousel height for different screen sizes */
 @media (min-width: 2560px) {
   .carousel {
-    height: 50%; /* Increase height for larger screens */
+    height: 1200px; /* Increase height for larger screens */
   }
 
+  .carousel__caption {
+    bottom: 63%;
+  }
+  .carousel__button {
+    top: 35%;
+  }
   .carousel__indicators {
-    bottom: 15vh;
+    bottom: 35%;
   }
 }
 
