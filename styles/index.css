@@ -51,7 +51,6 @@
 
 /* Navigation links styling */
 .header__nav-link {
-  font-family: sans-serif;
   display: inline-block;
   color: var(--text-color);
   text-decoration: none;
@@ -81,8 +80,6 @@
     "product-list";
   background-color: var(--secondary-color);
   color: var(--text-color);
-  min-height: 100vh;
-  gap: 0;
 }
 
 /* Carousel styling */
@@ -211,7 +208,6 @@ aside.products__list__scroller h3 {
   padding: 1rem;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  border-top: 3px dotted #fff;
 }
 
 .products__list__scroller__container {
@@ -333,8 +329,6 @@ aside.products__list__scroller h3 {
 /* Product list section styling */
 .product-list {
   grid-area: product-list;
-  padding: 1rem;
-  min-height: 100px;
 }
 
 /* Footer section styling */
@@ -392,12 +386,12 @@ aside.products__list__scroller h3 {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 0;
+    width: 100vw;
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
     top: 72px;
-    right: -100vw;
+    left: -100%;
     position: fixed;
     z-index: 999;
     border-top: 1px dashed white;
@@ -405,8 +399,7 @@ aside.products__list__scroller h3 {
   }
 
   .header__menu-btn:checked ~ .header__nav-menu {
-    transform: translateX(-100%);
-    width: 100vw;
+    transform: translateX(100%);
   }
 
   .header__menu-icon {
@@ -478,10 +471,10 @@ aside.products__list__scroller h3 {
 /* Tablets and larger devices */
 @media (min-width: 768px) and (max-width: 1199px) {
   .carousel__caption {
-    bottom: 30vh;
+    bottom: 45%;
   }
   .carousel {
-    height: 500px; /* Set a fixed height for larger screens */
+    height: auto; /* Set a fixed height for larger screens */
   }
 
   .product-list-scroller__items {
@@ -492,10 +485,15 @@ aside.products__list__scroller h3 {
 /* Desktops and larger devices */
 @media (min-width: 1200px) {
   .carousel__caption {
-    bottom: 52vh;
+    bottom: 48%;
   }
+
   .carousel {
-    height: 500px; /* Set a fixed height for larger screens */
+    height: auto; /* Set a fixed height for larger screens */
+  }
+
+  .product-list-scroller__items {
+    grid-auto-columns: calc((100% / 2) - 9px);
   }
 }
 
