@@ -82,6 +82,7 @@
   background-color: var(--secondary-color);
   color: var(--text-color);
   min-height: 100vh;
+  gap: 0;
 }
 
 /* Carousel styling */
