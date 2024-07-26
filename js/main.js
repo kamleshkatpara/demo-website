@@ -56,11 +56,6 @@ function startAutoSlide() {
   slideInterval = setInterval(() => plusSlides(1), 5000);
 }
 
-window.onload = function() {
-  createIndicators();
-  showSlides(slideIndex);
-  startAutoSlide();
-};
 
 /**
  * Products List Scroller
@@ -69,7 +64,42 @@ window.onload = function() {
 const container = document.querySelector(".products__list__scroller__container");
 const leftArrow = document.querySelector(".products__list__scroller__arrow--left");
 const rightArrow = document.querySelector(".products__list__scroller__arrow--right");
+const itemsContainer = container.querySelector(".products__list__scroller__items");
+const templateItem = document.querySelector(".products__list__scroller__item");
 
+// Hide the template item
+templateItem.style.display = 'none';
+
+// Fetch products data
+
+async function fetchProducts() {
+  try {
+    const response = await fetch('https://fakestoreapi.com/products');
+    const data = await response.json();
+    
+    data.forEach(product => {
+      // Clone the template item
+      const item = templateItem.cloneNode(true);
+  
+      // Set dynamic data
+      item.querySelector(".products__list__scroller-img").src = product.image;
+      item.querySelector(".products__list__scroller-img").alt = product.title;
+      item.querySelector(".products__list__scroller__title").textContent = product.title;
+      item.querySelector(".products__list__scroller__price").textContent = product.price;
+       
+      // Show the cloned item
+      item.style.display = 'flex';
+  
+      // Append the item to the container
+      itemsContainer.appendChild(item);
+    }); 
+  } catch (error) {
+    console.error('Error while fetching products');   
+  }
+  
+}
+
+// Scroll functionality
 leftArrow.addEventListener("click", () => {
   container.scrollBy({
     left: -300,
@@ -83,4 +113,12 @@ rightArrow.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
-  
+
+
+/** Load carousel and products */
+window.onload = function() {
+  createIndicators();
+  showSlides(slideIndex);
+  startAutoSlide();
+  fetchProducts();
+};

@@ -1,7 +1,16 @@
-/* Import CSS reset to ensure consistent styling across browsers */
 @import url("css-reset.css");
 
-/* Define CSS variables for primary, secondary, tertiary colors, and text color */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary-color: #36ba98;
   --secondary-color: #f4a261;
@@ -9,7 +18,6 @@
   --text-color: #ffffff;
 }
 
-/* Container to structure the main layout using CSS Grid */
 .container {
   display: grid;
   grid-template-areas:
@@ -70,35 +78,23 @@
 .header__menu-icon {
   display: none;
 }
-
-/* Main content section styling */
 .main__content {
   grid-area: main__content;
   display: grid;
-  grid-template-areas: "carousel";
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  grid-template-areas:
+    "carousel"
+    "products__list__scroller"
+    "product__list";
+  background-color: #f4a261;
+  color: white;
 }
 
-/* Carousel styling */
 .carousel {
   grid-area: carousel;
-  position: relative;
-  max-width: 100%;
-  height: 50vh;
-  overflow: hidden;
-}
-
-.carousel__slide {
-  display: none;
-  position: relative;
-}
-
-.carousel__image {
+  background-color: red;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: 700px; /* Adjust the height to your preference */
+  overflow: hidden;
 }
 
 .carousel__container {
@@ -106,7 +102,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
   transition: transform 0.5s ease-in-out;
+}
+
+.carousel__slide {
+  display: none;
+  position: relative;
+  width: 100%; /* Ensure it takes the full width of the container */
+  height: 100%; /* Ensure it takes the full height of the container */
+}
+
+.carousel__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire area without leaving spaces */
+  object-position: center;
 }
 
 /* Carousel navigation buttons styling */
@@ -146,7 +158,7 @@
   font-size: 1.5rem;
   padding: 8px 12px;
   position: absolute;
-  bottom: 50vh;
+  bottom: 50%;
   width: 100%;
   text-align: center;
 }
@@ -171,7 +183,7 @@
 .carousel__indicators {
   text-align: center;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   width: 100%;
   z-index: 10;
 }
@@ -191,8 +203,12 @@
   }
 }
 
-/* Products list scroller section styling */
-/* aside.products__list__scroller {
+.products__list__scroller {
+  grid-area: products__list__scroller;
+  width: 100%;
+}
+
+aside.products__list__scroller {
   grid-area: products__list__scroller;
   width: 100%;
   position: relative;
@@ -276,10 +292,9 @@ aside.products__list__scroller h3 {
 
 .products__list__scroller__btn:hover {
   background: #2980b9;
-} */
+}
 
-/* Products list scroller navigation arrows styling */
-/* .products__list__scroller__arrow {
+.products__list__scroller__arrow {
   top: 50%;
   height: 50px;
   width: 50px;
@@ -321,12 +336,11 @@ aside.products__list__scroller h3 {
 
 .products__list__scroller__arrow--right {
   right: 0;
-} */
+}
 
-/* Product list section styling */
-/* .product-list {
-  grid-area: product-list;
-} */
+.product__list {
+  grid-area: product__list;
+}
 
 /* Footer section styling */
 .footer {
@@ -371,9 +385,13 @@ aside.products__list__scroller h3 {
   text-decoration: underline;
 }
 
-/* Media Queries for responsive design */
+@media (min-width: 2560px) {
+  .carousel {
+    height: 1440px;
+  }
+}
 
-/* Mobile devices */
+/* For devices with a viewport width of 768px and above (tablets and desktops) */
 @media (max-width: 767px) {
   .header__nav {
     padding: 1rem 1.5rem;
@@ -386,7 +404,7 @@ aside.products__list__scroller h3 {
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
-    top: 72px;
+    top: 3rem;
     right: -100%;
     position: fixed;
     z-index: 999;
@@ -396,7 +414,7 @@ aside.products__list__scroller h3 {
 
   .header__menu-btn:checked ~ .header__nav-menu {
     transform: translateX(-100%);
-    width: 100vw;
+    width: 100%;
   }
 
   .header__menu-icon {
@@ -448,81 +466,21 @@ aside.products__list__scroller h3 {
     background: white;
   }
 
-  .carousel__container {
-    align-items: normal;
+  .carousel {
+    height: 500px; /* Adjust as needed for larger screens */
   }
-
-  .carousel__caption {
-    bottom: 40%;
-  }
-
-  /* .product-list-scroller__items {
-    grid-auto-columns: 100%;
-  } */
 
   .footer__columns {
     flex-direction: column;
   }
 }
 
-/* Tablets and larger devices */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .carousel__caption {
-    bottom: 45%;
-  }
+/* For devices with a viewport width between 576px and 767px (mobile landscape) */
+@media (min-width: 576px) and (max-width: 767px) {
   .carousel {
-    height: 767px; /* Set a fixed height for larger screens */
+    height: 400px; /* Adjust as needed for smaller screens */
   }
-
-  /* .product-list-scroller__items {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  } */
-}
-
-/* Desktops and larger devices */
-@media (min-width: 1200px) {
-  .carousel {
-    height: 768px; /* Set a fixed height for larger screens */
+  .footer__columns {
+    flex-direction: column;
   }
-
-  .carousel__caption {
-    bottom: 60%;
-  }
-  .carousel__button {
-    top: 35%;
-  }
-  .carousel__indicators {
-    bottom: 35%;
-  }
-
-  /* .product-list-scroller__items {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  } */
-}
-
-/* Adjust carousel height for different screen sizes */
-@media (min-width: 2560px) {
-  .carousel {
-    height: 1200px; /* Increase height for larger screens */
-  }
-
-  .carousel__caption {
-    bottom: 63%;
-  }
-  .carousel__button {
-    top: 35%;
-  }
-  .carousel__indicators {
-    bottom: 35%;
-  }
-}
-
-/* High-resolution screens (e.g., Retina) */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  /* CSS rules for high-resolution screens */
-}
-
-/* Print styles */
-@media print {
-  /* CSS rules for print view */
 }
