@@ -1,5 +1,7 @@
+/* Import CSS reset to ensure consistent styling across browsers */
 @import url("css-reset.css");
 
+/* Define CSS variables for primary, secondary, tertiary colors, and text color */
 :root {
   --primary-color: #36ba98;
   --secondary-color: #f4a261;
@@ -7,6 +9,7 @@
   --text-color: #ffffff;
 }
 
+/* Container to structure the main layout using CSS Grid */
 .container {
   display: grid;
   grid-template-areas:
@@ -17,12 +20,14 @@
   min-height: 100vh;
 }
 
+/* Header section styling */
 .header {
   grid-area: header;
   background-color: var(--primary-color);
   color: var(--text-color);
 }
 
+/* Navigation styling within the header */
 .header__nav {
   display: flex;
   justify-content: space-between;
@@ -30,11 +35,13 @@
   padding: 0 1rem;
 }
 
+/* Styling for the logo in the header */
 .header__logo {
   width: 100%;
   height: auto;
 }
 
+/* Navigation menu styling */
 .header__nav-menu {
   display: flex;
   list-style-type: none;
@@ -42,7 +49,9 @@
   padding: 0;
 }
 
+/* Navigation links styling */
 .header__nav-link {
+  font-family: sans-serif;
   display: inline-block;
   color: var(--text-color);
   text-decoration: none;
@@ -50,16 +59,19 @@
   padding: 1rem;
 }
 
+/* Hover effect for navigation links */
 .header__nav-link:hover {
   color: var(--primary-color);
   background-color: var(--text-color);
 }
 
+/* Hide menu button and icon by default */
 .header__menu-btn,
 .header__menu-icon {
   display: none;
 }
 
+/* Main content section styling */
 .main__content {
   grid-area: main__content;
   display: grid;
@@ -71,6 +83,7 @@
   color: var(--text-color);
 }
 
+/* Carousel styling */
 .carousel {
   grid-area: carousel;
   position: relative;
@@ -100,6 +113,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
+/* Carousel navigation buttons styling */
 .carousel__button {
   cursor: pointer;
   position: absolute;
@@ -130,6 +144,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Carousel caption styling */
 .carousel__caption {
   color: var(--text-color);
   font-size: 1.5rem;
@@ -140,6 +155,7 @@
   text-align: center;
 }
 
+/* Carousel dots styling */
 .carousel__dot {
   cursor: pointer;
   height: 15px;
@@ -164,6 +180,7 @@
   z-index: 10;
 }
 
+/* Carousel fade animation */
 .carousel__fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -178,6 +195,7 @@
   }
 }
 
+/* Products list scroller section styling */
 aside.products__list__scroller {
   grid-area: products__list__scroller;
   width: 100%;
@@ -192,7 +210,7 @@ aside.products__list__scroller h3::before {
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: var(--text-color);
+  background-color: red;
   z-index: 1;
 }
 
@@ -276,6 +294,7 @@ aside.products__list__scroller h3 {
   background: #2980b9;
 }
 
+/* Products list scroller navigation arrows styling */
 .products__list__scroller__arrow {
   top: 50%;
   height: 50px;
@@ -319,10 +338,13 @@ aside.products__list__scroller h3 {
 .products__list__scroller__arrow--right {
   right: 0;
 }
+
+/* Product list section styling */
 .product-list {
   grid-area: product-list;
 }
 
+/* Footer section styling */
 .footer {
   grid-area: footer;
   background-color: var(--tertiary-color);
@@ -365,7 +387,7 @@ aside.products__list__scroller h3 {
   text-decoration: underline;
 }
 
-/* Media Queries */
+/* Media Queries for responsive design */
 
 /* Mobile devices */
 @media (max-width: 767px) {
@@ -377,12 +399,12 @@ aside.products__list__scroller h3 {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100vw;
+    width: 0;
     height: 100vh;
     background-color: var(--primary-color);
     padding: 1rem;
     top: 72px;
-    left: -100%;
+    right: -100vw;
     position: fixed;
     z-index: 999;
     border-top: 1px dashed white;
@@ -390,7 +412,8 @@ aside.products__list__scroller h3 {
   }
 
   .header__menu-btn:checked ~ .header__nav-menu {
-    transform: translateX(100%);
+    transform: translateX(-100%);
+    width: 100vw;
   }
 
   .header__menu-icon {
