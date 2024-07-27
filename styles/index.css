@@ -347,9 +347,9 @@ aside.products__list__scroller h3 {
   color: var(--text-color);
   background-image: linear-gradient(
     to right,
-    #3ab5b0 0%,
+    #56317a 0%,
     #3d99be 31%,
-    #56317a 100%
+    #3ab5b0 100%
   );
   padding: 1rem;
   text-align: center;
@@ -490,7 +490,7 @@ aside.products__list__scroller h3 {
 
 @media (min-width: 1440px) and (max-width: 2559px) {
   .carousel {
-    height: 500px;
+    height: 700px;
   }
 }
 
@@ -576,7 +576,7 @@ aside.products__list__scroller h3 {
   }
 
   .carousel {
-    height: 400px; /* Adjust as needed for larger screens */
+    height: 500px; /* Adjust as needed for larger screens */
   }
 
   .footer__columns {
