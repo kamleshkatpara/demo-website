@@ -74,6 +74,7 @@
             <div class="carousel__indicators" id="carousel-indicators"></div>
           </div>
         </section>
+
         <aside class="products__list__scroller">
           <h3>Products List Scroller</h3>
           <i
@@ -82,14 +83,31 @@
           ></i>
           <div class="products__list__scroller__container">
             <div class="products__list__scroller__items">
-              <div class="products__list__scroller__item">
+              <div class="products__list__scroller__item" style="display: none">
                 <div class="products__list__scroller__img">
                   <img draggable="false" class="products__list__scroller-img" />
                 </div>
                 <div class="products__list__scroller__info">
                   <h2 class="products__list__scroller__title"></h2>
                   <p class="products__list__scroller__price"></p>
-                  <button class="products__list__scroller__btn">Buy Now</button>
+                  <div class="button__container">
+                    <div class="buy-now-container">
+                      <button class="products__list__scroller__btn">
+                        Buy Now
+                      </button>
+                    </div>
+                    <div class="counter-button-container">
+                      <div class="counter-container">
+                        <button class="counter-button counter-button--minus">
+                          -
+                        </button>
+                        <span class="counter">1</span>
+                        <button class="counter-button counter-button--plus">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -99,18 +117,35 @@
             class="products__list__scroller__arrow products__list__scroller__arrow--right"
           ></i>
         </aside>
+
         <section class="product__list">
           <h3>Product List</h3>
           <div class="product__list__container">
             <div class="product__list__items">
-              <div class="product__list__item">
+              <!-- This template item is used for dynamic product generation -->
+              <div class="product__list__item product__list__item-template">
                 <div class="product__list__img">
                   <img draggable="false" class="product__list-img" />
                 </div>
                 <div class="product__list__info">
                   <h2 class="product__list__title"></h2>
                   <p class="product__list__price"></p>
-                  <button class="product__list__btn">Buy Now</button>
+                  <div class="button__container">
+                    <div class="buy-now-container">
+                      <button class="product__list__btn">Buy Now</button>
+                    </div>
+                    <div class="counter-button-container">
+                      <div class="counter-container">
+                        <button class="counter-button counter-button--minus">
+                          -
+                        </button>
+                        <span class="counter">1</span>
+                        <button class="counter-button counter-button--plus">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -154,5 +189,13 @@
       </footer>
     </div>
   </body>
-  <script src="./js/main.js"></script>
+  <script>
+    const buyNowButton = document.querySelector(".product__list__btn");
+
+    buyNowButton.addEventListener("click", (event) => {
+      console.log("Buy Now button clicked");
+      console.log("Event:", event);
+    });
+  </script>
+  <script src="./js/main.js" defer></script>
 </html>

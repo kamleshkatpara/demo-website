@@ -78,7 +78,6 @@
 
 .carousel {
   grid-area: carousel;
-  background-color: red;
   width: 100%;
   height: 700px;
   overflow: hidden;
@@ -282,7 +281,7 @@ aside.products__list__scroller h3 {
   padding: 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   align-self: stretch;
   font-family: sans-serif;
   transition: background 0.3s;
@@ -370,6 +369,7 @@ aside.products__list__scroller h3 {
   gap: 0.5rem;
   margin: 1rem;
 }
+
 .product__list__item {
   background: #fff;
   border-radius: 8px;
@@ -380,6 +380,10 @@ aside.products__list__scroller h3 {
   flex-direction: column;
   flex-grow: 1;
   align-items: stretch;
+}
+
+.product__list__item-template {
+  display: none;
 }
 
 .product__list__img {
@@ -421,6 +425,18 @@ aside.products__list__scroller h3 {
   margin: 0;
 }
 
+.button__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy-now-container,
+.counter-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product__list__btn {
   background: #0ab67f;
   color: #fff;
@@ -428,14 +444,37 @@ aside.products__list__scroller h3 {
   padding: 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1.2rem;
-  align-self: stretch;
+  font-size: 1rem;
   font-family: sans-serif;
   transition: background 0.3s;
 }
 
 .product__list__btn:hover {
   background: #2980b9;
+}
+
+.counter-container {
+  display: none;
+  align-items: center;
+}
+
+.counter {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.counter-button {
+  background-color: #0ab67f;
+  color: white;
+  font-size: 1rem;
+  border: 1px solid green;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.counter-button:hover {
+  color: white;
+  background-color: green;
 }
 
 /* Footer section styling */
