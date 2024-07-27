@@ -435,13 +435,6 @@ aside.products__list__scroller h3 {
   justify-content: space-between;
 }
 
-.buy-now-container,
-.counter-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .product__list__btn {
   background: #0ab67f;
   color: #fff;
@@ -461,6 +454,7 @@ aside.products__list__scroller h3 {
 .counter-container {
   display: none;
   align-items: center;
+  justify-content: space-around;
 }
 
 .counter {
