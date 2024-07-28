@@ -241,10 +241,19 @@ async function fetchProductList() {
   });
 }
 
-window.onload = function () {
-  createIndicators();
-  showSlides(slideIndex);
-  startAutoSlide();
-  generateProductsListScroller();
-  fetchProductList();
-};
+createIndicators();
+showSlides(slideIndex);
+startAutoSlide();
+generateProductsListScroller();
+
+let hasScrolled = false;
+
+function handleScroll() {
+  if (!hasScrolled) {
+    hasScrolled = true;
+    fetchProductList();
+    window.removeEventListener("scroll", handleScroll);
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
