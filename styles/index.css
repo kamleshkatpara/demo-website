@@ -275,7 +275,7 @@ aside.products__list__scroller h3 {
 
 .products__list__scroller__price {
   font-size: 1.5rem;
-  color: #27ae60;
+  color: var(--primary-color);
   margin: 0;
 }
 
@@ -426,7 +426,7 @@ aside.products__list__scroller h3 {
 
 .product__list__price {
   font-size: 1.5rem;
-  color: #27ae60;
+  color: var(--primary-color);
   margin: 0;
 }
 
