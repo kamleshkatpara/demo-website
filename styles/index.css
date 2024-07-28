@@ -463,10 +463,10 @@ aside.products__list__scroller h3 {
 }
 
 .counter-button {
-  background-color: #0ab67f;
+  background-color: var(--primary-color);
   color: white;
   font-size: 1rem;
-  border: 1px solid green;
+  border: 1px solid var(--primary-color);
   cursor: pointer;
   padding: 10px;
 }
