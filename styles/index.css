@@ -3,7 +3,7 @@
 :root {
   --primary-color: #20604d;
   --secondary-color: #f4a261;
-  --tertiary-color: #e76f51;
+  --tertiary-color: #9a3413;
   --text-color: #ffffff;
 }
 
@@ -280,7 +280,7 @@ aside.products__list__scroller h3 {
 }
 
 .products__list__scroller__btn {
-  background: #0ab67f;
+  background: var(--primary-color);
   color: #fff;
   border: none;
   padding: 12px;
@@ -293,7 +293,7 @@ aside.products__list__scroller h3 {
 }
 
 .products__list__scroller__btn:hover {
-  background: #2980b9;
+  background: var(--primary-color);
 }
 
 .products__list__scroller__arrow {
@@ -436,7 +436,7 @@ aside.products__list__scroller h3 {
 }
 
 .product__list__btn {
-  background: #0ab67f;
+  background: var(--primary-color);
   color: #fff;
   border: none;
   padding: 12px;
@@ -448,7 +448,7 @@ aside.products__list__scroller h3 {
 }
 
 .product__list__btn:hover {
-  background: #2980b9;
+  background: var(--primary-color);
 }
 
 .counter-container {
